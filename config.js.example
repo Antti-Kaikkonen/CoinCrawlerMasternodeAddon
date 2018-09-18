@@ -1,0 +1,9 @@
+let config = {
+  rpc_username: "rpcuser from dash.conf",
+  rpc_password: "rpcpassword from dash.conf",
+  rpc_url: "http://localhost:9998",
+  proxy_url: "localhost:3000", //where CoinCrawler is running
+  listen_port: 3005
+}
+
+module.exports = config;

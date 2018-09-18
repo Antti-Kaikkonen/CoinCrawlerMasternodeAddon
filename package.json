@@ -1,0 +1,19 @@
+{
+  "name": "coincrawlermasternodeaddon",
+  "version": "1.0.0",
+  "description": "Adds a masternode column to CoinCrawler csv ouput",
+  "main": "run.js",
+  "keywords": [
+    "CoinCrawler",
+    "Dash",
+    "Masternode"
+  ],
+  "author": "Antti Kaikkonen",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "^3.0.0",
+    "express": "^4.16.3",
+    "express-http-proxy": "^1.2.0",
+    "request": "^2.88.0"
+  }
+}
