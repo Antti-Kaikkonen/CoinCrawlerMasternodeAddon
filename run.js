@@ -12,7 +12,7 @@ var masternodes = [];
 app.use('/', proxy(config.proxy_url, {
 
   userResDecorator: function(proxyRes, proxyResData, userReq, userRes) {
-    if (proxyRes.url !== "full_nodes.csv") return proxyResData;
+    if (proxyRes.req.path !== "/full_nodes.csv") return proxyResData;
     return new Promise(function(resolve) {
       var parser = parse({delimiter: ',', relax: true});
 
@@ -61,7 +61,6 @@ setInterval(function() {
                   mnlist.push(ip);
                 });
                 masternodes = mnlist;
-                console.log("mns", masternodes);
               }
           }
       }
