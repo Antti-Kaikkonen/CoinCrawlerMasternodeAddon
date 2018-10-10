@@ -6,7 +6,7 @@ const config = require('./config');
 
 var app = express();
 
-var masternodes = [];
+var masternodes = new Set();
 
 //app.use('/proxy', proxy('185.165.169.30:3001', {
 app.use('/', proxy(config.proxy_url, {
@@ -22,7 +22,7 @@ app.use('/', proxy(config.proxy_url, {
         while(record = parser.read()){
           //record = record.map(column => column.replace(/\"/g, "\"\""));
           let ip = record[0];
-          let isMasternode = masternodes.includes(ip);
+          let isMasternode = masternodes.has(ip);
           let port = record[1];
           i++;
           record.push(isMasternode ? 1 : 0);
@@ -60,7 +60,7 @@ setInterval(function() {
                   let ip = ipAndPort.split(":")[0];
                   mnlist.push(ip);
                 });
-                masternodes = mnlist;
+                masternodes = new Set(mnlist);
               }
           }
       }
